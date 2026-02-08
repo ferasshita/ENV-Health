@@ -32,11 +32,15 @@ class PhpIniAuditor implements AuditorInterface
         }
 
         if (!empty($issues)) {
+            $message = 'Critical issues: ' . implode('; ', $issues);
+            if (!empty($warnings)) {
+                $message .= '. ' . implode('; ', $warnings);
+            }
             return new AuditResult(
                 $this->getName(),
                 AuditResult::STATUS_FAIL,
                 30,
-                'Critical issues: ' . implode('; ', $issues) . '. ' . implode('; ', $warnings)
+                $message
             );
         }
 
