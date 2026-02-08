@@ -4,4 +4,5 @@ composer.lock
 *.pem
 *.key
 .phpunit.result.cache
+.phpunit.cache/
 /tmp/
